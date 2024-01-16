@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Forca</title>
+    </head>
+    <body>
+        <h1>FORCA</h1>
+        <h2>Dica:
+            <span id="dica">Animal</span>
+        </h2>
+        <p id="palavra">_ _ _ _ _ _</p>
+        <form id="formForca" onsubmit="return jogar();">
+            <label for="letraInput">Escolha uma letra:</label>
+            <input
+                type="text"
+                id="letraInput"
+                maxlength="1"
+                placeholder="Digite uma letra"
+                required
+            >
+            <button type="button" onclick="jogar()">Enviar</button>
+        </form>
+        <script>
+    var cont = 0;
+    let arr = new Array(6).fill("_"); // array inicialmente vazio com 6 sublinhados
+
+    function atualizarDica() {
+      if (!arr.includes("_")) {
+        cont++;
+        if (cont === 1) {
+          document.getElementById("dica").innerHTML = "Fruta";
+        } else if (cont === 2) {
+          document.getElementById("dica").innerHTML = "País";
+        }
+      }
+    }
+    function jogar() {
+        let letra = document.getElementById("letraInput").value.toLowerCase();//transformando em letra minuscula
+        if (arr.includes("_")) {
+            if (letra === "a") {
+            arr.splice(3, 1, "a");
+            arr.splice(5, 1, "a");
+            } else if (letra === "g") {
+            arr.splice(0, 1, "g");
+            } else if (letra === "i") {
+            arr.splice(1, 1, "i");
+            } else if (letra === "r") {
+            arr.splice(2, 1, "r");
+            } else if (letra === "f") {
+            arr.splice(4, 1, "f");
+            } else {
+
+            }
+            document.getElementById("palavra").innerHTML = arr.join("");
+            atualizarDica();
+            return false; // Impede a redefinição do formulário
+        }
+    }
+    if(cont===0){
+    jogar(); // Inicia o jogo automaticamente
+    }
+    if(onclick){
+        letraInput.value = ""; 
+    }
+        </script>
+    </body>
+</html>

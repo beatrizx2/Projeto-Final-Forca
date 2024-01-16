@@ -1,0 +1,15 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}/m.js",
+            "runtimeExecutable": "C:\\Users\\beaaz\\Downloads\\meunode\\node.exe"  // Este é o caminho para o executável do Node.js
+        }
+    ]
+}
