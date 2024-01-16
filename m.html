@@ -1,11 +1,11 @@
-<!DOCTYPE html> 
-<html lang="en"> 
+<!DOCTYPE html> <!-- Define o tipo de documento como HTML -->
+<html lang="en"> <!-- Início do documento HTML, definindo o idioma como inglês -->
 
-    <head> 
-        <meta charset="UTF-8"> 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-        <title>Forca</title> 
-    </head> 
+    <head> <!-- Início da seção de cabeçalho do documento -->
+        <meta charset="UTF-8"> <!-- Define a codificação de caracteres do documento como UTF-8 -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Define a viewport para dispositivos móveis -->
+        <title>Forca</title> <!-- Define o título do documento -->
+    </head> <!-- Fim da seção de cabeçalho do documento -->
 
     <body> <!-- Início do corpo do documento -->
         <h1>FORCA</h1> <!-- Título principal da página -->
@@ -13,12 +13,13 @@
             <span id="dica">Animal</span> <!-- Span com id "dica", inicialmente contendo a dica "Animal" -->
         </h2>
         <p id="palavra"></p> <!-- Parágrafo com id "palavra", inicialmente vazio -->
+
         <form id="formForca" onsubmit="return false;"> <!-- Formulário com id "formForca", que não faz nada ao ser submetido -->
             <label for="letraInput">Escolha uma letra:</label> <!-- Rótulo para o campo de entrada de letra -->
             <input
-                type="text" 
-                id="letraInput" 
-                maxlength="1" 
+                type="text" <!-- Define o tipo do campo de entrada como texto -->
+                id="letraInput" <!-- Define o id do campo de entrada como "letraInput" -->
+                maxlength="1" <!-- Define o comprimento máximo do campo de entrada como 1 -->
                 placeholder="Digite uma letra" <!-- Define o texto do placeholder do campo de entrada -->
                 required <!-- Define que o campo de entrada é obrigatório -->
             >
@@ -32,7 +33,7 @@
     var tentativas = 0; // Contador de tentativas erradas
     var indice = 0; // Índice da palavra atual
 
-    function iniciarJogo() { 
+    function iniciarJogo() { // Função para iniciar o jogo
         arr = new Array(palavras[indice].length).fill("_"); // Inicializa o array com sublinhados do tamanho da palavra atual
         document.getElementById("palavra").innerHTML = arr.join(" "); // Exibe a palavra atual (como sublinhados) na página
         document.getElementById("dica").innerHTML = dicas[indice]; // Exibe a dica atual na página
