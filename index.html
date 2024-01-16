@@ -12,7 +12,7 @@
         <h2>Dica: <!-- Título secundário da página -->
             <span id="dica">Animal</span> <!-- Span com id "dica", inicialmente contendo a dica "Animal" -->
         </h2>
-        <p id="palavra"></p> <!-- Parágrafo com id "palavra", inicialmente vazio -->
+        <p id="palavra"></p> <!-- Parágrafo com id "palavra", inicialmente vazio, mas logo depois sera preenchido-->
 
         <form id="formForca" onsubmit="return false;"> <!-- Formulário com id "formForca", que não faz nada ao ser submetido -->
             <label for="letraInput">Escolha uma letra:</label> <!-- Rótulo para o campo de entrada de letra -->
@@ -51,7 +51,7 @@
             } else { // Se a palavra atual não contém a letra digitada
                 tentativas++; // Incrementa o número de tentativas erradas
             }
-            document.getElementById("palavra").innerHTML = arr.join(" "); // Atualiza a exibição da palavra na página
+            document.getElementById("palavra").innerHTML = arr.join(" "); // Converte em string e junta por meio do espaço/ Atualiza a exibição da palavra na página
             document.getElementById("letraInput").value = "";  // Limpa o campo de entrada
 
             if (!arr.includes("_")) { // Se todas as letras foram adivinhadas
