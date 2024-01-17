@@ -24,7 +24,9 @@ input[type="text"]{
 }
 #resInput[type="text"]{
     width: 50px;
+    margin-top: 2%;
 }
+
 section.forca{
     display: flex;
     align-items:center;
