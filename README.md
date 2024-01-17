@@ -4,7 +4,7 @@
 Este projeto foi desenvolvido como parte do treinamento em JavaScript para o curso de capacitação do projeto Tomorrow. O objetivo principal é proporcionar uma oportunidade prática para os participantes aprimorarem suas habilidades em JavaScript, especialmente em manipulação do DOM, lógica de programação e interações com o usuário.
 
 ## Orientador
-Professor Claudio Jr
+-Professor Claudio Jr
 
 ## Integrantes do Grupo
 - Arthur Batista
