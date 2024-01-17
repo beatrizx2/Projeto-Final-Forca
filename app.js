@@ -24,12 +24,14 @@ var palavras = [
   "ruby",
   "assembly",
   "java",
-]; 
-var dicas = ["Animal", "Fruta", "País", "Veículo", "Linguagem de Programação"]; 
-var arr; 
+]; // Array de palavras a serem adivinhadas
+var dicas = ["Animal", "Fruta", "País", "Veículo", "Linguagem de Programação"]; // Array de dicas correspondentes às palavras
+var arr; // Variável que vai conter a palavra atual em formato de array
 var tentativas = 0; // Contador de tentativas erradas
 var num = Math.floor(Math.random() * 25); // Índice da palavra atual
 let forcaImagem = document.querySelector("#forca-img");
+let botaoResposta = document.querySelector("#resButton");
+botaoResposta.addEventListener("click", res);
 
 function geradorDeDicas() {
   if (num <= 4) {
@@ -71,7 +73,7 @@ function jogar() {
     } else {
       // Se a palavra atual não contém a letra digitada
       tentativas++; // Incrementa o número de tentativas erradas
-      // MudarImagem(); // A função MudarImagem() não está definida no código fornecido
+      MudarImagem();
     }
     document.getElementById("palavra").innerHTML = arr.join(" "); // Converte em string e junta por meio do espaço/ Atualiza a exibição da palavra na página
     document.getElementById("letraInput").value = ""; // Limpa o campo de entrada
@@ -80,29 +82,28 @@ function jogar() {
       num = Math.floor(Math.random() * 25); // Gera um valor aleatório de 0 a 24
       if (num < palavras.length) {
         // Se ainda há palavras a serem adivinhadas
-        iniciarJogo(); // Inicia o jogo com a próxima palavra
+        Jogar(); // Inicia o jogo com a próxima palavra
       }
       res(); // Chama a função res automaticamente após uma tentativa bem-sucedida
+
     }
   }
 }
-
-function res() {
-  if (document.getElementById("resInput").value.toLowerCase() === palavras[num]) {
-    let mensagem = document.getElementById("mensagem").innerHTML = "Parabéns, você acertou!";
+function res(){
+  let palavraRes = document.getElementById("resInput").value.toLowerCase();
+  if (palavraRes == palavras[num]) {
+    let mensagem = document.getElementById("mensagem");
+    mensagem.innerHTML = "Parabéns, você acertou!"; 
     document.getElementById("resInput").value = ""; // Limpa o campo de entrada
     document.getElementById("jogar-de-novo").style.display = "block"; // Exibe o botão "Jogar de novo"
   } else {
-    tentativas = 0;
-    document.getElementById("resInput").value = ""; // Limpa o campo de entrada
-    iniciarJogo(); // Inicia o jogo automaticamente
+    if (palavraRes.length == 0){
+      alert("Digite uma palavra válida!");
+    } else {
+      tentativas = 0;
+      document.getElementById("resInput").value = ""; // Limpa o campo de entrada
+      iniciarJogo(); // Inicia o jogo automaticamente
+    }
+    
   }
 }
-
-document.getElementById("jogar-de-novo").addEventListener("click", function() {
-  tentativas = 0;
-  iniciarJogo();
-  this.style.display = "none"; // Oculta o botão "Jogar de novo"
-});
-
-iniciarJogo(); // Inicia o jogo automaticamente
