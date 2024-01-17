@@ -51,8 +51,8 @@ function iniciarJogo() {
   console.log(num);
   arr = new Array(palavras[num].length).fill("_"); // Inicializa o array com sublinhados do tamanho da palavra atual
   document.getElementById("palavra").innerHTML = arr.join(" "); // Exibe a palavra atual (como sublinhados) na página
-  document.getElementById("dica").innerHTML = geradorDeDicas(); // para a palavra correspondente à categoria 
-  //da dica, é inicializado um array arr com sublinhados do mesmo tamanho da palavra atual. 
+  document.getElementById("dica").innerHTML = geradorDeDicas(); // Exibe a dica atual na página
+}
 
 function jogar() {
   // Função para jogar
@@ -87,5 +87,4 @@ function jogar() {
   }
 }
 
-iniciarJogo(); 
-}// Inicia o jogo automaticamente
+iniciarJogo(); // Inicia o jogo automaticamente
