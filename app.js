@@ -75,7 +75,6 @@ function jogar() {
     }
     document.getElementById("palavra").innerHTML = arr.join(" "); // Converte em string e junta por meio do espaço/ Atualiza a exibição da palavra na página
     document.getElementById("letraInput").value = ""; // Limpa o campo de entrada
-
     if (!arr.includes("_")) {
       // Se todas as letras foram adivinhadas
       num = Math.floor(Math.random() * 25); // Gera um valor aleatório de 0 a 24
@@ -83,8 +82,31 @@ function jogar() {
         // Se ainda há palavras a serem adivinhadas
         iniciarJogo(); // Inicia o jogo com a próxima palavra
       }
+      res(); // Chama a função res automaticamente após uma tentativa bem-sucedida
+
     }
   }
 }
+function res(event) {
+  event.preventDefault(); // Adicione esta linha
+  let palavraRes = document.getElementById("resInput").value.toLowerCase();
+  if (palavraRes == palavras[num]) {
+    let mensagem = document.getElementById("mensagem").innerHTML = "Parabéns, você acertou!"; 
+    document.getElementById("resInput").value = ""; // Limpa o campo de entrada
+    document.getElementById("jogar-de-novo").style.display = "block"; // Exibe o botão "Jogar de novo"
+  } else {
+    tentativas = 0;
+    document.getElementById("resInput").value = ""; // Limpa o campo de entrada
+    iniciarJogo(); // Inicia o jogo automaticamente
+  }
+}
 
+document.getElementById("jogar-de-novo").addEventListener("click", function() {
+  tentativas = 0;
+  iniciarJogo();
+  this.style.display = "none"; // Oculta o botão "Jogar de novo"
+});
+
+ 
 iniciarJogo(); // Inicia o jogo automaticamente
+res();

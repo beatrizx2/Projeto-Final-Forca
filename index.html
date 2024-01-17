@@ -23,9 +23,22 @@
             <label for="letraInput">Escolha uma letra:</label>
             <input type="text" id="letraInput" maxlength="1" placeholder="" required>
             <button type="button" onclick="jogar()">Enviar</button>
-  
         </form>
-
+        <form id="fomRes" onsubmit="return false;">
+            <label for="resInput">Responda, caso saiba a palavra:</label>
+            <input type="text" id="resInput" maxlength="10" placeholder="" required>
+            <button type="button" onclick="res()">Enviar</button>
+            <p id="mensagem"></p>
+            <button id="jogar-de-novo" style="display: none;">Jogar de novo</button>
+        </form>
+          
+          <script>
+            document.getElementById("fomRes").addEventListener("submit", function(event) {
+              event.preventDefault(); // Evita a submissão padrão do formulário
+              res(); // Chama a função res ao pressionar "Enter"
+            });
+          </script>
+          
         <section class="forca">
             <p id="palavra"></p> 
             <img id="forca-img" src="assets/forca-img.png">

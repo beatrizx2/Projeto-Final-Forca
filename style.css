@@ -22,7 +22,9 @@ section#jogo-forca{
 input[type="text"]{
     width: 25px;
 }
-
+#resInput[type="text"]{
+    width: 50px;
+}
 section.forca{
     display: flex;
     align-items:center;
