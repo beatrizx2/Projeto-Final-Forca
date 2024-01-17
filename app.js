@@ -88,9 +88,6 @@ function jogar() {
 }
 
 function res() {
-  // Remova o parâmetro event se não for necessário
-  // let palavraRes = document.getElementById("resInput").value.toLowerCase();
-  // if (palavraRes === palavras[num]) {
   if (document.getElementById("resInput").value.toLowerCase() === palavras[num]) {
     let mensagem = document.getElementById("mensagem").innerHTML = "Parabéns, você acertou!";
     document.getElementById("resInput").value = ""; // Limpa o campo de entrada
