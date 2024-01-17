@@ -24,9 +24,9 @@ var palavras = [
   "ruby",
   "assembly",
   "java",
-]; // Array de palavras a serem adivinhadas
-var dicas = ["Animal", "Fruta", "País", "Veículo", "Linguagem de Programação"]; // Array de dicas correspondentes às palavras
-var arr; // Variável que vai conter a palavra atual em formato de array
+]; 
+var dicas = ["Animal", "Fruta", "País", "Veículo", "Linguagem de Programação"]; 
+var arr; 
 var tentativas = 0; // Contador de tentativas erradas
 var num = Math.floor(Math.random() * 25); // Índice da palavra atual
 let forcaImagem = document.querySelector("#forca-img");
@@ -71,7 +71,7 @@ function jogar() {
     } else {
       // Se a palavra atual não contém a letra digitada
       tentativas++; // Incrementa o número de tentativas erradas
-      MudarImagem();
+      // MudarImagem(); // A função MudarImagem() não está definida no código fornecido
     }
     document.getElementById("palavra").innerHTML = arr.join(" "); // Converte em string e junta por meio do espaço/ Atualiza a exibição da palavra na página
     document.getElementById("letraInput").value = ""; // Limpa o campo de entrada
@@ -83,15 +83,16 @@ function jogar() {
         iniciarJogo(); // Inicia o jogo com a próxima palavra
       }
       res(); // Chama a função res automaticamente após uma tentativa bem-sucedida
-
     }
   }
 }
-function res(event) {
-  event.preventDefault(); // Adicione esta linha
-  let palavraRes = document.getElementById("resInput").value.toLowerCase();
-  if (palavraRes == palavras[num]) {
-    let mensagem = document.getElementById("mensagem").innerHTML = "Parabéns, você acertou!"; 
+
+function res() {
+  // Remova o parâmetro event se não for necessário
+  // let palavraRes = document.getElementById("resInput").value.toLowerCase();
+  // if (palavraRes === palavras[num]) {
+  if (document.getElementById("resInput").value.toLowerCase() === palavras[num]) {
+    let mensagem = document.getElementById("mensagem").innerHTML = "Parabéns, você acertou!";
     document.getElementById("resInput").value = ""; // Limpa o campo de entrada
     document.getElementById("jogar-de-novo").style.display = "block"; // Exibe o botão "Jogar de novo"
   } else {
@@ -107,6 +108,4 @@ document.getElementById("jogar-de-novo").addEventListener("click", function() {
   this.style.display = "none"; // Oculta o botão "Jogar de novo"
 });
 
- 
 iniciarJogo(); // Inicia o jogo automaticamente
-res();
