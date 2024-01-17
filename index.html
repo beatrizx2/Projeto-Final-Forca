@@ -12,18 +12,24 @@
 </head>
 <body>
     <h1>FORCA</h1>
-    <h2>Dica:
-        <span id="dica"></span> 
-    </h2>
-    <form id="formForca" onsubmit="return false;"> 
-        <label for="letraInput">Escolha uma letra:</label>
-        <input type="text" id="letraInput" maxlength="1" placeholder="" required>
-        <button type="button" onclick="jogar()">Enviar</button>
-    </form>
 
-    <section class="forca">
-        <img id="forca-img" src="assets/forca-img.png">
-        <p id="palavra"></p> 
+    <section id="jogo-forca">
+    
+        <h2>Dica:
+            <span id="dica"></span> 
+        </h2>
+
+        <form id="formForca" onsubmit="return false;"> 
+            <label for="letraInput">Escolha uma letra:</label>
+            <input type="text" id="letraInput" maxlength="1" placeholder="" required>
+            <button type="button" onclick="jogar()">Enviar</button>
+        </form>
+
+        <section class="forca">
+            <p id="palavra"></p> 
+            <img id="forca-img" src="assets/forca-img.png">
+        </section>
+
     </section>
 
         

@@ -4,8 +4,35 @@ body{
 
 h1{
     text-align: center;
+    margin: 2% 0;
 
     font-weight: bold;
+}
+
+h2{
+    margin-bottom: 2%;
+}
+
+section#jogo-forca{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+input[type="text"]{
+    width: 10px;
+}
+
+section.forca{
+    display: flex;
+    align-items:center;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+section.forca img{
+    margin: 2% 0;
+    width: 30%;
 }
 
 img{
