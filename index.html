@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body onload="iniciarJogo()">
     <h1>FORCA</h1>
 
     <section id="jogo-forca">
@@ -19,26 +19,19 @@
             <span id="dica"></span> 
         </h2>
 
-        <form id="formForca" onsubmit="return false;"> 
+        <form id="formForca"> 
             <label for="letraInput">Escolha uma letra:</label>
-            <input type="text" id="letraInput" maxlength="1" placeholder="" required>
-            <button type="button" onclick="jogar()">Enviar</button>
+            <input type="text" id="letraInput" maxlength="1">
+            <input type="button" onclick="jogar()" value="Enviar"/>
         </form>
-        <form id="fomRes" onsubmit="return false;">
+        <form id="fomRes">
             <label for="resInput">Responda, caso saiba a palavra:</label>
-            <input type="text" id="resInput" maxlength="10" placeholder="" required>
-            <button type="button" onclick="res()">Enviar</button>
+            <input name="formRes" type="text" id="resInput">
+            <input type="button" value="Enviar" id="resButton"/>
             <p id="mensagem"></p>
             <button id="jogar-de-novo" style="display: none;">Jogar de novo</button>
         </form>
-          
-          <script>
-            document.getElementById("fomRes").addEventListener("submit", function(event) {
-              event.preventDefault(); // Evita a submissão padrão do formulário
-              res(); // Chama a função res ao pressionar "Enter"
-            });
-          </script>
-          
+                    
         <section class="forca">
             <p id="palavra"></p> 
             <img id="forca-img" src="assets/forca-img.png">
