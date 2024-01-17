@@ -1,4 +1,4 @@
-var palavras = [
+let palavras = [
   "girafa",
   "macaco",
   "cachorro",
@@ -25,10 +25,10 @@ var palavras = [
   "assembly",
   "java",
 ]; // Array de palavras a serem adivinhadas
-var dicas = ["Animal", "Fruta", "País", "Veículo", "Linguagem de Programação"]; // Array de dicas correspondentes às palavras
-var arr; // Variável que vai conter a palavra atual em formato de array
-var tentativas = 0; // Contador de tentativas erradas
-var num = Math.floor(Math.random() * 25); // Índice da palavra atual
+let dicas = ["Animal", "Fruta", "País", "Veículo", "Linguagem de Programação"]; // Array de dicas correspondentes às palavras
+let arr; // letiável que vai conter a palavra atual em formato de array
+let tentativas = 0; // Contador de tentativas erradas
+let num = Math.floor(Math.random() * 25); // Índice da palavra atual
 let forcaImagem = document.querySelector("#forca-img");
 let botaoResposta = document.querySelector("#resButton");
 botaoResposta.addEventListener("click", res);
@@ -48,9 +48,10 @@ function geradorDeDicas() {
 }
 
 function iniciarJogo() {
+  num = Math.floor(Math.random() * 25); // Índice da palavra atual
   // Função para iniciar o jogo
   console.log(geradorDeDicas());
-  console.log(num);
+  console.log(palavras[num]);
   arr = new Array(palavras[num].length).fill("_"); // Inicializa o array com sublinhados do tamanho da palavra atual
   document.getElementById("palavra").innerHTML = arr.join(" "); // Exibe a palavra atual (como sublinhados) na página
   document.getElementById("dica").innerHTML = geradorDeDicas(); // Exibe a dica atual na página
@@ -100,6 +101,7 @@ function res(){
     if (palavraRes.length == 0){
       alert("Digite uma palavra válida!");
     } else {
+      alert("Você errou!")
       tentativas = 0;
       document.getElementById("resInput").value = ""; // Limpa o campo de entrada
       iniciarJogo(); // Inicia o jogo automaticamente
