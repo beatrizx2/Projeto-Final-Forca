@@ -63,7 +63,13 @@ function iniciarJogo() {
   palavra.innerHTML = arr.join(" "); // Exibe a palavra atual (como sublinhados) na página
   dica.innerHTML = geradorDeDicas(); // Exibe a dica atual na página
 }
-
+function Enviar(){
+  if (resInput.value.length == 0){
+    alert("Escreva a palavra!")
+  } else {
+    jogar() // Se não estiver vazio, chama a função jogar() normalmente
+  }
+}
 //Função para verificar se o input da letra está vazio ou não
 function escolher(){
   if (letraInput.value.length == 0){
