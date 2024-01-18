@@ -133,3 +133,8 @@ function res() {
     }
   }
 }
+// Adiciona o código para cancelar o envio do formulário
+document.getElementById('meuForm').addEventListener('submit', function(event) {
+  event.preventDefault(); // Cancela o envio padrão do formulário
+  res(); // Chama a função res() para lidar com a ação do botão
+});
