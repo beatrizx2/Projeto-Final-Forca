@@ -139,6 +139,7 @@ function res() {
     alert("Digite uma palavra válida!")
   } else {
     if (palavraRes.value.toLowerCase() == palavras[num]){
+      palavra.innerHTML = palavras[num]
       mensagem.innerHTML = "Parabéns, você acertou!";
       esconderBotoes()
       palavraRes.value = ""; // Limpa o campo de entrada
