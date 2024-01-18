@@ -29,18 +29,27 @@ section#jogo-forca {
 }
 #formInput {
     display: flex;
-    flex-direction: row;
+    flex-direction: row; /* Alterado para dispor os elementos horizontalmente */
     align-items: center;
     margin-top: 20px; /* Adicione um espaçamento acima do #formInput, se desejado */
 }
 
+label[for="letraInput"] {
+    margin-right: 8px; /* Adicione espaçamento à direita do label */
+    display: block; /* Garante que o label e o input estão em linhas diferentes */
+}
+
 input[type="text"] {
     width: 25px;
-    margin-top: 1%;
-    padding: 8px; 
-    border: 1px solid #ccc; 
-    border-radius: 14px; 
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 14px;
 }
+
+input[type="button"] {
+    margin-left: 8px; /* Adicione espaçamento à esquerda do botão */
+}
+
 
 #resInput[type="text"] {
     width: 50px;
