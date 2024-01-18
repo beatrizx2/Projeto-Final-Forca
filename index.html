@@ -19,18 +19,18 @@
             <span id="dica"></span> 
         </h2>
 
-        <form id="formInput"> 
+        <section id="formInput"> 
             <label for="letraInput">Escolha uma letra:</label>
             <input type="text" id="letraInput" maxlength="1" required>
             <input type="button" onclick="escolher()" value="Escolher"/>
-        </form>
-        <form id="fomRes">
+        </section>
+        <section id="fomRes">
             <label for="resInput">Responda, caso saiba a palavra:</label>
             <input name="formRes" type="text" id="resInput" required>
             <input type="button" value="Enviar" id="resButton" />
             <p id="mensagem"></p>
             <button id="jogar-de-novo" style="display: none;">Jogar de novo</button>
-        </form>
+        </section>
                     
         <section class="forca">
             <p id="palavra"></p> 
@@ -41,12 +41,5 @@
         
     <script src="mudar-imagem.js"></script>
     <script src="app.js"></script>
-    <script>
-    // Add manipulador de eventos ao formulário de Responder Palavra para resolver problema de envio
-        document.getElementById('fomRes').addEventListener('submit', function(event) {
-            event.preventDefault(); // Evita o comportamento padrão de enviar o formulário
-            res(); 
-        });
-    </script>
 </body>
 </html>
