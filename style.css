@@ -11,8 +11,8 @@ h1 {
     margin: 2% 0 1.5rem;
     font-weight: bold;
     font-family: 'Roboto', sans-serif;
-    color: #008080; /* Cor do título principal */
-    font-size: 2em; /* Ajuste o tamanho da fonte conforme necessário */
+    color: #008080; 
+    font-size: 50px; 
 }
 
 h2 {
