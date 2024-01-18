@@ -12,6 +12,7 @@ h1 {
     font-weight: bold;
     font-family: 'Roboto', sans-serif;
     color: #008080; /* Cor do título principal */
+    font-size: 2em; /* Ajuste o tamanho da fonte conforme necessário */
 }
 
 h2 {
@@ -33,7 +34,6 @@ input[type="text"] {
     border: 1px solid #ccc; 
     border-radius: 14px; 
 }
-
 
 #resInput[type="text"] {
     width: 50px;
