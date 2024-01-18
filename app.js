@@ -124,6 +124,7 @@ function jogar() {
         }
 
         mensagem.innerHTML = "Parabéns, você acertou!"
+        esconderBotoes()
         jogarDeNovoBotao.style.display = "flex"; // Exibe o botão "Jogar de novo"
         
       }
@@ -139,6 +140,7 @@ function res() {
   } else {
     if (palavraRes.value.toLowerCase() == palavras[num]){
       mensagem.innerHTML = "Parabéns, você acertou!";
+      esconderBotoes()
       palavraRes.value = ""; // Limpa o campo de entrada
       jogarDeNovoBotao.style.display = "flex"; // Exibe o botão "Jogar de novo"
     } else {

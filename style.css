@@ -29,9 +29,13 @@ section#formInput, section#formRes{
     margin-top: 1%;
 }
 
-section#formInput span, section#formRes span{
+section#formInput span, section#formRes span, span#mensagem{
     font-weight: bold;
     /* margin-left: 1%; */
+}
+
+span#mensagem{
+    margin: 2%;
 }
 
 section#jogo-forca {
