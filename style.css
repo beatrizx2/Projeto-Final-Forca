@@ -1,44 +1,51 @@
-body{
+body {
+    font-family: 'Roboto', sans-serif;
+    min-height: 100vh;
+    margin: 0;
+}
+
+h1 {
+    text-align: center;
+    margin: 2% 0 1.5rem;
+    font-weight: bold;
     font-family: 'Roboto', sans-serif;
 }
 
-h1{
-    text-align: center;
-    margin: 2% 0;
-
-    font-weight: bold;
+h2 {
+    margin-bottom: 1.5%;
 }
 
-h2{
-    margin-bottom: 2%;
-}
-
-section#jogo-forca{
+section#jogo-forca {
     display: flex;
     align-items: center;
     flex-direction: column;
-}
-
-input[type="text"]{
-    width: 25px;
-}
-#resInput[type="text"]{
-    width: 50px;
     margin-top: 2%;
 }
 
-section.forca{
+input[type="text"] {
+    width: 25px;
+    margin-top: 1%;
+}
+
+#resInput[type="text"] {
+    width: 50px;
+    margin-top: 1%;
+}
+
+section.forca {
     display: flex;
-    align-items:center;
+    align-items: center;
     justify-content: space-around;
     flex-direction: row;
+    margin-bottom: 2%;
 }
 
-section.forca img{
+section.forca img {
     margin: 2% 0;
-    width: 30%;
+    width: 100%;
 }
 
-img{
-    width: 10%;
+img {
+    width: 100%;
+    margin-top: 2%;
 }
