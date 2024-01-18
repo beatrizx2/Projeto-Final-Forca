@@ -1,44 +1,47 @@
 <!DOCTYPE html>
 <html lang="pt_br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jogo da Forca</title>
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-</head>
-<body onload="iniciarJogo()">
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body onload="iniciarJogo()">
     <h1>FORCA</h1>
 
     <section id="jogo-forca">
-    
-        <h2>Dica:
-            <span id="dica"></span> 
-        </h2>
+      <h2>
+        Dica:
+        <span id="dica"></span>
+      </h2>
 
-        <section id="formInput"> 
-c            <input type="text" id="letraInput" maxlength="1" required>
-            <input type="button" onclick="escolher()" value="Escolher"/>
-        </section>
-        <section id="fomRes">
-            <label for="resInput">Responda, caso saiba a palavra:</label>
-            <input name="formRes" type="text" id="resInput" required>
-            <input type="button" value="Enviar" id="resButton"/>
-            <p id="mensagem"></p>
-            <button id="jogar-de-novo" style="display: none;" onclick="jogarDeNovo()">Jogar de novo</button>
-        </section>
-                    
-        <section class="forca">
-            <p id="palavra"></p> 
-            <img id="forca-img" src="assets/forca-img.png">
-        </section>
+      <section id="formInput">
+        <label for="letraInput">Escolha uma letra:</label>
+        <input type="text" id="letraInput" maxlength="1" required />
+        <input type="button" onclick="escolher()" value="Escolher" />
+      </section>
+      <section id="fomRes">
+        <label for="resInput">Chute a palavra:</label>
+        <input name="formRes" type="text" id="resInput" required />
+        <input type="button" value="Enviar" id="resButton" />
+        <p id="mensagem"></p>
+        <button id="jogar-de-novo" style="display: none" onclick="jogarDeNovo()">Jogar de novo</button>
+      </section>
 
+      <section class="forca">
+        <p id="palavra"></p>
+        <img id="forca-img" src="assets/forca-img.png" />
+      </section>
     </section>
-        
+
     <script src="mudar-imagem.js"></script>
     <script src="app.js"></script>
-</body>
+  </body>
 </html>

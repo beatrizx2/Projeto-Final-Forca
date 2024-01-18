@@ -56,6 +56,12 @@ section.forca img{
     width: 30%;
 }
 
-img{
-    width: 10%;
+@media screen and (max-width: 600px){
+    section.forca{
+        flex-direction: column-reverse;
+    }
+
+    section.forca img{
+        width: 50%;
+    }
 }
