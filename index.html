@@ -23,17 +23,17 @@
       </h2>
 
       <section id="formInput">
-        <label for="letraInput">Escolha uma letra:</label>
+        <label for="letraInput"> <span>Escolha uma letra: </span> </label>
         <input type="text" id="letraInput" maxlength="1" required />
-        <input type="button" onclick="escolher()" value="Escolher" />
+        <input type="button" onclick="escolher()" value="Escolher" id="letraButton" />
       </section>
-      <section id="fomRes">
-        <label for="resInput">Chute a palavra:</label>
+      <section id="formRes">
+        <label for="resInput"> <span>Chute a palavra: </span> </label>
         <input name="formRes" type="text" id="resInput" required />
         <input type="button" value="Enviar" id="resButton" />
         <p id="mensagem"></p>
-        <button id="jogar-de-novo" style="display: none" onclick="jogarDeNovo()">Jogar de novo</button>
-      </section>
+    </section>
+    <button id="jogar-de-novo" style="display: none" onclick="jogarDeNovo()">Jogar de novo</button>
 
       <section class="forca">
         <p id="palavra"></p>

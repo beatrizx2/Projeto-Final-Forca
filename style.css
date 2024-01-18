@@ -21,6 +21,19 @@ h2 {
     font-size: 20px; 
 }
 
+section#formInput, section#formRes{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1%;
+}
+
+section#formInput span, section#formRes span{
+    font-weight: bold;
+    /* margin-left: 1%; */
+}
+
 section#jogo-forca {
     display: flex;
     align-items: center;
@@ -30,15 +43,14 @@ section#jogo-forca {
 
 input[type="text"] {
     width: 25px;
-    margin-top: 1%;
     padding: 8px; 
     border: 1px solid #ccc; 
     border-radius: 14px; 
+    margin: 0 1%;
 }
 
 #resInput[type="text"] {
     width: 50px;
-    margin-top: 1%;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 14px;
@@ -55,6 +67,22 @@ section.forca img{
     margin: 2% 0;
     width: 30%;
 }
+
+button, input[type="button"] {
+    padding: 5px;
+    font-size: 16px;
+    background-color: #008080;
+    color: white;
+    border: 2px solid #051f28;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover, input[type="button"]:hover{
+    background-color: #00688B;
+    color: white;
+}
+
 
 @media screen and (max-width: 600px){
     section.forca{

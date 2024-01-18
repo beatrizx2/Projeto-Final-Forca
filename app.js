@@ -38,6 +38,7 @@ let dica = document.getElementById("dica"); //Seleciona a tag <span> com id dica
 let letraInput = document.getElementById("letraInput"); //Seleciona o input em que vai ser digitado a letra
 let palavraRes = document.getElementById("resInput");
 let jogarDeNovoBotao = document.getElementById("jogar-de-novo"); //Seleciona o botão de jogar novamente
+let letraButton = document.querySelector("#letraButton")
 botaoResposta.addEventListener("click", res); // Adiciona o evento de click e chama a função res() no botão resposta
 
 function geradorDeDicas() {
@@ -74,7 +75,8 @@ function escolher() {
       tentativas++;
       MudarImagem();
       alert("Você perdeu!");
-      jogarDeNovoBotao.style.display = "block"; // Exibe o botão "Jogar de novo"
+      esconderBotoes()
+      jogarDeNovoBotao.style.display = "flex"; // Exibe o botão "Jogar de novo"
       letraInput.disabled = true;
       palavraRes.disabled = true;
       letraInput.value = ""
@@ -122,7 +124,7 @@ function jogar() {
         }
 
         mensagem.innerHTML = "Parabéns, você acertou!"
-        jogarDeNovoBotao.style.display = "block"; // Exibe o botão "Jogar de novo"
+        jogarDeNovoBotao.style.display = "flex"; // Exibe o botão "Jogar de novo"
         
       }
     }
@@ -138,10 +140,11 @@ function res() {
     if (palavraRes.value.toLowerCase() == palavras[num]){
       mensagem.innerHTML = "Parabéns, você acertou!";
       palavraRes.value = ""; // Limpa o campo de entrada
-      jogarDeNovoBotao.style.display = "block"; // Exibe o botão "Jogar de novo"
+      jogarDeNovoBotao.style.display = "flex"; // Exibe o botão "Jogar de novo"
     } else {
       alert("Resposta errada! Você perdeu")
-      jogarDeNovoBotao.style.display = "block"; // Exibe o botão "Jogar de novo"
+      jogarDeNovoBotao.style.display = "flex"; // Exibe o botão "Jogar de novo"
+      esconderBotoes()
       letraInput.disabled = true;
       palavraRes.disabled = true;
       palavraRes.value = ""; // Limpa o campo de entrada
@@ -155,7 +158,22 @@ function jogarDeNovo() {
   tentativas = 0;
   MudarImagem();
   iniciarJogo();
+  mostrarBotoes();
   jogarDeNovoBotao.style.display = "none"; // Exibe o botão "Jogar de novo"
   letraInput.disabled = false;
   palavraRes.disabled = false;
+}
+
+function esconderBotoes(){
+  let formInput = document.querySelector("#formInput");
+  let formRes = document.querySelector("#formRes")
+  formInput.style.display = "none"
+  formRes.style.display = "none"
+}
+
+function mostrarBotoes(){
+  let formInput = document.querySelector("#formInput");
+  let formRes = document.querySelector("#formRes")
+  formInput.style.display = "flex"
+  formRes.style.display = "flex"
 }
