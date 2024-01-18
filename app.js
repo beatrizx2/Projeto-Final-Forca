@@ -74,7 +74,7 @@ function escolher() {
     if (tentativas == 3) {
       tentativas++;
       MudarImagem();
-      alert("Você perdeu!");
+      mensagem.innerHTML = "Que pena, você perdeu!"
       esconderBotoes()
       jogarDeNovoBotao.style.display = "flex"; // Exibe o botão "Jogar de novo"
       letraInput.disabled = true;
@@ -144,7 +144,7 @@ function res() {
       palavraRes.value = ""; // Limpa o campo de entrada
       jogarDeNovoBotao.style.display = "flex"; // Exibe o botão "Jogar de novo"
     } else {
-      alert("Resposta errada! Você perdeu")
+      mensagem.innerHTML = "Que pena, você perdeu!"
       jogarDeNovoBotao.style.display = "flex"; // Exibe o botão "Jogar de novo"
       esconderBotoes()
       letraInput.disabled = true;
