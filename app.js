@@ -83,7 +83,7 @@ function escolher(){
     
   }
 }
-function escolheRes(){
+function Enviar(){
   if (resInput.value.length == 0){
     alert("Escreva a palavra!")
   } else {
