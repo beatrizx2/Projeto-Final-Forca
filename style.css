@@ -26,7 +26,6 @@ section#jogo-forca {
     background-color: #ffffff;
     padding: 2em;
     border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
 }
 
 input[type="text"] {
