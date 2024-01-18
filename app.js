@@ -29,14 +29,14 @@ let dicas = ["Animal", "Fruta", "País", "Veículo", "Linguagem de Programação
 let arr; // letiável que vai conter a palavra atual em formato de array
 let tentativas = 0; // Contador de tentativas erradas
 let num = Math.floor(Math.random() * 25); // Índice da palavra atual
-let forcaImagem = document.querySelector("#forca-img");
-let botaoResposta = document.querySelector("#resButton");
-let letrasEscolhidas = [];
-let palavra = document.getElementById("palavra")
-let dica = document.getElementById("dica")
-let letraInput = document.getElementById("letraInput")
-let jogarDeNovoBotao = document.getElementById("jogar-de-novo")
-botaoResposta.addEventListener("click", res);
+let forcaImagem = document.querySelector("#forca-img"); // Seleciona a imagem da forca
+let botaoResposta = document.querySelector("#resButton"); // Seleciona o botão para responder a palavra inteira
+let letrasEscolhidas = []; // cria um array vazio para ser adicionado as letras que vão sendo escolhidas
+let palavra = document.getElementById("palavra") //Seleciona a tag <p> com id palavra
+let dica = document.getElementById("dica") //Seleciona a tag <span> com id dica
+let letraInput = document.getElementById("letraInput") //Seleciona o input em que vai ser digitado a letra
+let jogarDeNovoBotao = document.getElementById("jogar-de-novo") //Seleciona o botão de jogar novamente
+botaoResposta.addEventListener("click", res); // Adiciona o evento de click e chama a função res() no botão resposta
 
 function geradorDeDicas() {
   if (num <= 4) {
@@ -63,11 +63,12 @@ function iniciarJogo() {
   dica.innerHTML = geradorDeDicas(); // Exibe a dica atual na página
 }
 
+//Função para verificar se o input da letra está vazio ou não
 function escolher(){
   if (letraInput.value.length == 0){
     alert("Escolha uma letra!")
   } else {
-    jogar()
+    jogar() // Se não estiver vazio, chama a função jogar() normalmente
   }
 }
 
