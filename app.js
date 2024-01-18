@@ -37,7 +37,7 @@ let dica = document.getElementById("dica") //Seleciona a tag <span> com id dica
 let letraInput = document.getElementById("letraInput") //Seleciona o input em que vai ser digitado a letra
 let palavraRes = document.getElementById("resInput")
 let jogarDeNovoBotao = document.getElementById("jogar-de-novo") //Seleciona o botão de jogar novamente
-botaoResposta.addEventListener("click", res); // Adiciona o evento de click e chama a função res() no botão resposta
+// botaoResposta.addEventListener("click", res); // Adiciona o evento de click e chama a função res() no botão resposta
 
 function geradorDeDicas() {
   if (num <= 4) {
@@ -130,7 +130,7 @@ function jogar() {
 }
 
 function res() {
-  palavraRes.value.toLowerCase();
+  palavraRes = palavraRes.value.toLowerCase();
   if (palavraRes == palavras[num]) {
     let mensagem = document.getElementById("mensagem");
     mensagem.innerHTML = "Parabéns, você acertou!";
