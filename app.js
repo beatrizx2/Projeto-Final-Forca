@@ -1,4 +1,4 @@
-let palavras = [
+var palavras = [
   "girafa",
   "macaco",
   "cachorro",
@@ -25,10 +25,10 @@ let palavras = [
   "assembly",
   "java",
 ]; // Array de palavras a serem adivinhadas
-let dicas = ["Animal", "Fruta", "País", "Veículo", "Linguagem de Programação"]; // Array de dicas correspondentes às palavras
-let arr; // letiável que vai conter a palavra atual em formato de array
-let tentativas = 0; // Contador de tentativas erradas
-let num = Math.floor(Math.random() * 25); // Índice da palavra atual
+var dicas = ["Animal", "Fruta", "País", "Veículo", "Linguagem de Programação"]; // Array de dicas correspondentes às palavras
+var arr; // letiável que vai conter a palavra atual em formato de array
+var tentativas = 0; // Contador de tentativas erradas
+var num = Math.floor(Math.random() * 25); // Índice da palavra atual
 let forcaImagem = document.querySelector("#forca-img");
 let botaoResposta = document.querySelector("#resButton");
 botaoResposta.addEventListener("click", res);
@@ -60,7 +60,7 @@ function iniciarJogo() {
 function jogar() {
   // Função para jogar
   let letra = document.getElementById("letraInput").value.toLowerCase(); // Pega a letra digitada pelo usuário e a transforma em minúscula
-  if (arr.includes("_") && tentativas < 6) {
+  if (arr.includes("_") && tentativas < 5) {
     // Se ainda há letras a serem adivinhadas e o número de tentativas erradas é menor que 6
     if (palavras[num].includes(letra)) {
       // Se a palavra atual contém a letra digitada
@@ -83,9 +83,9 @@ function jogar() {
       num = Math.floor(Math.random() * 25); // Gera um valor aleatório de 0 a 24
       if (num < palavras.length) {
         // Se ainda há palavras a serem adivinhadas
-        Jogar(); // Inicia o jogo com a próxima palavra
+        jogar(); // Inicia o jogo com a próxima palavra
       }
-      res(); // Chama a função res automaticamente após uma tentativa bem-sucedida
+      iniciarJogo(); // Chama a função res automaticamente após uma tentativa bem-sucedida
 
     }
   }
