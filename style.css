@@ -18,6 +18,7 @@ h1 {
 h2 {
     margin-bottom: 1.5%;
     color: #006666; /* Cor do subtítulo */
+    font-size: 20px; 
 }
 
 section#jogo-forca {
