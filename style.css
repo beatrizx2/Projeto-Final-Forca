@@ -2,6 +2,8 @@ body {
     font-family: 'Roboto', sans-serif;
     min-height: 100vh;
     margin: 0;
+    background-color: #f4f4f4; /* Cor de fundo do corpo */
+    color: #333; /* Cor do texto principal */
 }
 
 h1{
