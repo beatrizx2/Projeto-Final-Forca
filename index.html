@@ -42,5 +42,18 @@
         
     <script src="mudar-imagem.js"></script>
     <script src="app.js"></script>
+    <script>
+        // Adiciona um manipulador de eventos ao formulário de Escolher Letra
+        document.getElementById('formForca').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita o comportamento padrão de enviar o formulário
+            escolher(); // Adicione a lógica necessária para a função escolher
+        });
+
+        // Adiciona um manipulador de eventos ao formulário de Responder Palavra
+        document.getElementById('fomRes').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita o comportamento padrão de enviar o formulário
+            res(); // Adicione a lógica necessária para a função res
+        });
+    </script>
 </body>
 </html>
