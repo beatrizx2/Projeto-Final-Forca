@@ -71,12 +71,19 @@ function escolher(){
     jogar() // Se não estiver vazio, chama a função jogar() normalmente
   }
 }
+function escolheRes(){
+  if (resInput.value.length == 0){
+    alert("Escreva a palavra!")
+  } else {
+    jogar() // Se não estiver vazio, chama a função jogar() normalmente
+  }
+}
 
 function jogar() {
   // Função para jogar
   let letra = document.getElementById("letraInput").value.toLowerCase(); // Pega a letra digitada pelo usuário e a transforma em minúscula
 
-  if (letrasEscolhidas.includes(letra)) {
+  if (letrasEscolhidas.includes(letra) && ) {
     alert("Letra já escolhida, tente outra!");
     letraInput.value = ""; // Limpa o campo de entrada
   } else {
@@ -121,6 +128,7 @@ function res() {
     let mensagem = document.getElementById("mensagem");
     mensagem.innerHTML = "Parabéns, você acertou!";
     palavraRes.value = ""; // Limpa o campo de entrada
+    formInput.disabled = true;
     jogarDeNovoBotao.style.display = "block"; // Exibe o botão "Jogar de novo"
   } else {
     if (palavraRes.length == 0) {
