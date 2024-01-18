@@ -1,4 +1,4 @@
-var palavras = [
+let palavras = [
   "girafa",
   "macaco",
   "cachorro",
@@ -25,12 +25,17 @@ var palavras = [
   "assembly",
   "java",
 ]; // Array de palavras a serem adivinhadas
-var dicas = ["Animal", "Fruta", "País", "Veículo", "Linguagem de Programação"]; // Array de dicas correspondentes às palavras
-var arr; // letiável que vai conter a palavra atual em formato de array
-var tentativas = 0; // Contador de tentativas erradas
-var num = Math.floor(Math.random() * 25); // Índice da palavra atual
+let dicas = ["Animal", "Fruta", "País", "Veículo", "Linguagem de Programação"]; // Array de dicas correspondentes às palavras
+let arr; // letiável que vai conter a palavra atual em formato de array
+let tentativas = 0; // Contador de tentativas erradas
+let num = Math.floor(Math.random() * 25); // Índice da palavra atual
 let forcaImagem = document.querySelector("#forca-img");
 let botaoResposta = document.querySelector("#resButton");
+let letrasEscolhidas = [];
+let palavra = document.getElementById("palavra")
+let dica = document.getElementById("dica")
+let letraInput = document.getElementById("letraInput")
+let jogarDeNovoBotao = document.getElementById("jogar-de-novo")
 botaoResposta.addEventListener("click", res);
 
 function geradorDeDicas() {
@@ -48,64 +53,82 @@ function geradorDeDicas() {
 }
 
 function iniciarJogo() {
+  letrasEscolhidas = [];
   num = Math.floor(Math.random() * 25); // Índice da palavra atual
   // Função para iniciar o jogo
   console.log(geradorDeDicas());
   console.log(palavras[num]);
   arr = new Array(palavras[num].length).fill("_"); // Inicializa o array com sublinhados do tamanho da palavra atual
-  document.getElementById("palavra").innerHTML = arr.join(" "); // Exibe a palavra atual (como sublinhados) na página
-  document.getElementById("dica").innerHTML = geradorDeDicas(); // Exibe a dica atual na página
+  palavra.innerHTML = arr.join(" "); // Exibe a palavra atual (como sublinhados) na página
+  dica.innerHTML = geradorDeDicas(); // Exibe a dica atual na página
+}
+
+function escolher(){
+  if (letraInput.value.length == 0){
+    alert("Escolha uma letra!")
+  } else {
+    jogar()
+  }
 }
 
 function jogar() {
   // Função para jogar
   let letra = document.getElementById("letraInput").value.toLowerCase(); // Pega a letra digitada pelo usuário e a transforma em minúscula
-  if (arr.includes("_") && tentativas < 5) {
-    // Se ainda há letras a serem adivinhadas e o número de tentativas erradas é menor que 6
-    if (palavras[num].includes(letra)) {
-      // Se a palavra atual contém a letra digitada
-      for (let i = 0; i < palavras[num].length; i++) {
-        // Para cada letra da palavra atual
-        if (palavras[num][i] === letra) {
-          // Se a letra da palavra atual é igual à letra digitada
-          arr[i] = letra; // Substitui o sublinhado pela letra na posição correspondente
-        }
-      }
-    } else {
-      // Se a palavra atual não contém a letra digitada
-      tentativas++; // Incrementa o número de tentativas erradas
-      MudarImagem();
-    }
-    document.getElementById("palavra").innerHTML = arr.join(" "); // Converte em string e junta por meio do espaço/ Atualiza a exibição da palavra na página
-    document.getElementById("letraInput").value = ""; // Limpa o campo de entrada
-    if (!arr.includes("_")) {
-      // Se todas as letras foram adivinhadas
-      num = Math.floor(Math.random() * 25); // Gera um valor aleatório de 0 a 24
-      if (num < palavras.length) {
-        // Se ainda há palavras a serem adivinhadas
-        jogar(); // Inicia o jogo com a próxima palavra
-      }
-      iniciarJogo(); // Chama a função res automaticamente após uma tentativa bem-sucedida
 
+  if (letrasEscolhidas.includes(letra)) {
+    alert("Letra já escolhida, tente outra!");
+    letraInput.value = ""; // Limpa o campo de entrada
+  } else {
+    if (arr.includes("_") && tentativas < 5) {
+      // Se ainda há letras a serem adivinhadas e o número de tentativas erradas é menor que 6
+      if (palavras[num].includes(letra)) {
+        // Se a palavra atual contém a letra digitada
+        for (let i = 0; i < palavras[num].length; i++) {
+          // Para cada letra da palavra atual
+          if (palavras[num][i] === letra) {
+            // Se a letra da palavra atual é igual à letra digitada
+            arr[i] = letra; // Substitui o sublinhado pela letra na posição correspondente
+          }
+        }
+      } else {
+        // Se a palavra atual não contém a letra digitada
+        tentativas++; // Incrementa o número de tentativas erradas
+        MudarImagem();
+      }
+      palavra.innerHTML = arr.join(" "); // Converte em string e junta por meio do espaço/ Atualiza a exibição da palavra na página
+      letraInput.value = ""; // Limpa o campo de entrada
+      if (!arr.includes("_")) {
+        // Se todas as letras foram adivinhadas
+        num = Math.floor(Math.random() * 25); // Gera um valor aleatório de 0 a 24
+        if (num < palavras.length) {
+          // Se ainda há palavras a serem adivinhadas
+          tentativas = 0
+          MudarImagem()
+          jogar(); // Inicia o jogo com a próxima palavra
+        }
+        
+        iniciarJogo(); // Chama a função res automaticamente após uma tentativa bem-sucedida
+      }
     }
   }
+
+  letrasEscolhidas.push(letra);
 }
-function res(){
+function res() {
   let palavraRes = document.getElementById("resInput").value.toLowerCase();
   if (palavraRes == palavras[num]) {
     let mensagem = document.getElementById("mensagem");
-    mensagem.innerHTML = "Parabéns, você acertou!"; 
-    document.getElementById("resInput").value = ""; // Limpa o campo de entrada
-    document.getElementById("jogar-de-novo").style.display = "block"; // Exibe o botão "Jogar de novo"
+    mensagem.innerHTML = "Parabéns, você acertou!";
+    palavraRes.value = ""; // Limpa o campo de entrada
+    jogarDeNovoBotao.style.display = "block"; // Exibe o botão "Jogar de novo"
   } else {
-    if (palavraRes.length == 0){
+    if (palavraRes.length == 0) {
       alert("Digite uma palavra válida!");
     } else {
-      alert("Você errou!")
+      alert("Você errou!");
       tentativas = 0;
-      document.getElementById("resInput").value = ""; // Limpa o campo de entrada
+      palavraRes.value = ""; // Limpa o campo de entrada
       iniciarJogo(); // Inicia o jogo automaticamente
     }
-    
   }
 }
