@@ -14,22 +14,33 @@ h1 {
     color: #008080; /* Cor do título principal */
 }
 
-h2{
-    margin-bottom: 2%;
+h2 {
+    margin-bottom: 1.5%;
+    color: #006666; /* Cor do subtítulo */
 }
 
-section#jogo-forca{
+section#jogo-forca {
     display: flex;
     align-items: center;
     flex-direction: column;
+    margin-top: 2%;
 }
 
-input[type="text"]{
+input[type="text"] {
     width: 25px;
+    margin-top: 1%;
+    padding: 8px; 
+    border: 1px solid #ccc; 
+    border-radius: 14px; 
 }
-#resInput[type="text"]{
+
+
+#resInput[type="text"] {
     width: 50px;
-    margin-top: 2%;
+    margin-top: 1%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 14px;
 }
 
 section.forca{
