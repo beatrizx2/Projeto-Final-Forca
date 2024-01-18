@@ -128,8 +128,8 @@ function res() {
     } else {
       alert("Você errou!");
       tentativas = 0;
-      palavraRes.value = ""; // Limpa o campo de entrada
       iniciarJogo(); // Inicia o jogo automaticamente
+      palavraRes.value =""; // Limpa o campo de entrada
     }
   }
 }
