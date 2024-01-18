@@ -27,6 +27,12 @@ section#jogo-forca {
     flex-direction: column;
     margin-top: 2%;
 }
+#formInput {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px; /* Adicione um espaçamento acima do #formInput, se desejado */
+}
 
 input[type="text"] {
     width: 25px;
