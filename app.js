@@ -35,6 +35,7 @@ let letrasEscolhidas = []; // cria um array vazio para ser adicionado as letras 
 let palavra = document.getElementById("palavra") //Seleciona a tag <p> com id palavra
 let dica = document.getElementById("dica") //Seleciona a tag <span> com id dica
 let letraInput = document.getElementById("letraInput") //Seleciona o input em que vai ser digitado a letra
+let palavraRes = document.getElementById("resInput")
 let jogarDeNovoBotao = document.getElementById("jogar-de-novo") //Seleciona o botão de jogar novamente
 botaoResposta.addEventListener("click", res); // Adiciona o evento de click e chama a função res() no botão resposta
 
@@ -68,7 +69,18 @@ function escolher(){
   if (letraInput.value.length == 0){
     alert("Escolha uma letra!")
   } else {
-    jogar() // Se não estiver vazio, chama a função jogar() normalmente
+    if (tentativas == 3){
+      tentativas++
+      MudarImagem()
+      alert("Você perdeu!") 
+      jogarDeNovoBotao.style.display = "block"; // Exibe o botão "Jogar de novo"
+      letraInput.disabled = true
+      palavraRes.disabled = true
+
+    } else {
+      jogar()
+    }
+    
   }
 }
 function escolheRes(){
@@ -87,7 +99,7 @@ function jogar() {
     alert("Letra já escolhida, tente outra!");
     letraInput.value = ""; // Limpa o campo de entrada
   } else {
-    if (arr.includes("_") && tentativas < 5) {
+    if (arr.includes("_")) {
       // Se ainda há letras a serem adivinhadas e o número de tentativas erradas é menor que 6
       if (palavras[num].includes(letra)) {
         // Se a palavra atual contém a letra digitada
@@ -101,6 +113,7 @@ function jogar() {
       } else {
         // Se a palavra atual não contém a letra digitada
         tentativas++; // Incrementa o número de tentativas erradas
+        console.log(tentativas);
         MudarImagem();
       }
       palavra.innerHTML = arr.join(" "); // Converte em string e junta por meio do espaço/ Atualiza a exibição da palavra na página
@@ -122,8 +135,9 @@ function jogar() {
 
   letrasEscolhidas.push(letra);
 }
+
 function res() {
-  let palavraRes = document.getElementById("resInput").value.toLowerCase();
+  palavraRes.value.toLowerCase();
   if (palavraRes == palavras[num]) {
     let mensagem = document.getElementById("mensagem");
     mensagem.innerHTML = "Parabéns, você acertou!";
@@ -134,10 +148,21 @@ function res() {
     if (palavraRes.length == 0) {
       alert("Digite uma palavra válida!");
     } else {
-      alert("Você errou!");
+      jogarDeNovoBotao.style.display = "block"; // Exibe o botão "Jogar de novo"
+      letraInput.disabled = true
+      palavraRes.disabled = true
       palavraRes.value = ""; // Limpa o campo de entrada
-      tentativas = 0;
       iniciarJogo(); // Inicia o jogo automaticamente
     }
   }
+}
+
+function jogarDeNovo(){
+  tentativas = 0
+  MudarImagem()
+  iniciarJogo()
+  jogarDeNovoBotao.style.display = "none"; // Exibe o botão "Jogar de novo"
+  letraInput.disabled = false
+  palavraRes.disabled = false
+
 }
