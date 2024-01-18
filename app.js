@@ -32,12 +32,13 @@ let num = Math.floor(Math.random() * 25); // Índice da palavra atual
 let forcaImagem = document.querySelector("#forca-img"); // Seleciona a imagem da forca
 let botaoResposta = document.querySelector("#resButton"); // Seleciona o botão para responder a palavra inteira
 let letrasEscolhidas = []; // cria um array vazio para ser adicionado as letras que vão sendo escolhidas
-let palavra = document.getElementById("palavra") //Seleciona a tag <p> com id palavra
-let dica = document.getElementById("dica") //Seleciona a tag <span> com id dica
-let letraInput = document.getElementById("letraInput") //Seleciona o input em que vai ser digitado a letra
-let palavraRes = document.getElementById("resInput")
-let jogarDeNovoBotao = document.getElementById("jogar-de-novo") //Seleciona o botão de jogar novamente
-// botaoResposta.addEventListener("click", res); // Adiciona o evento de click e chama a função res() no botão resposta
+let palavra = document.getElementById("palavra"); //Seleciona a tag <p> com id palavra
+let mensagem = document.getElementById("mensagem");
+let dica = document.getElementById("dica"); //Seleciona a tag <span> com id dica
+let letraInput = document.getElementById("letraInput"); //Seleciona o input em que vai ser digitado a letra
+let palavraRes = document.getElementById("resInput");
+let jogarDeNovoBotao = document.getElementById("jogar-de-novo"); //Seleciona o botão de jogar novamente
+botaoResposta.addEventListener("click", res); // Adiciona o evento de click e chama a função res() no botão resposta
 
 function geradorDeDicas() {
   if (num <= 4) {
@@ -65,22 +66,21 @@ function iniciarJogo() {
 }
 
 //Função para verificar se o input da letra está vazio ou não
-function escolher(){
-  if (letraInput.value.length == 0){
-    alert("Escolha uma letra!")
+function escolher() {
+  if (letraInput.value.length == 0) {
+    alert("Escolha uma letra!");
   } else {
-    if (tentativas == 3){
-      tentativas++
-      MudarImagem()
-      alert("Você perdeu!") 
+    if (tentativas == 3) {
+      tentativas++;
+      MudarImagem();
+      alert("Você perdeu!");
       jogarDeNovoBotao.style.display = "block"; // Exibe o botão "Jogar de novo"
-      letraInput.disabled = true
-      palavraRes.disabled = true
-
+      letraInput.disabled = true;
+      palavraRes.disabled = true;
+      letraInput.value = ""
     } else {
-      jogar()
+      jogar();
     }
-    
   }
 }
 
@@ -116,12 +116,14 @@ function jogar() {
         num = Math.floor(Math.random() * 25); // Gera um valor aleatório de 0 a 24
         if (num < palavras.length) {
           // Se ainda há palavras a serem adivinhadas
-          tentativas = 0
-          MudarImagem()
+          tentativas = 0;
+          MudarImagem();
           jogar(); // Inicia o jogo com a próxima palavra
         }
+
+        mensagem.innerHTML = "Parabéns, você acertou!"
+        jogarDeNovoBotao.style.display = "block"; // Exibe o botão "Jogar de novo"
         
-        iniciarJogo(); // Chama a função res automaticamente após uma tentativa bem-sucedida
       }
     }
   }
@@ -130,31 +132,30 @@ function jogar() {
 }
 
 function res() {
-  palavraRes = palavraRes.value.toLowerCase();
-  if (palavraRes == palavras[num]) {
-    let mensagem = document.getElementById("mensagem");
-    mensagem.innerHTML = "Parabéns, você acertou!";
-    palavraRes.value = ""; // Limpa o campo de entrada
-    jogarDeNovoBotao.style.display = "block"; // Exibe o botão "Jogar de novo"
+  if (palavraRes.value.length == 0){
+    alert("Digite uma palavra válida!")
   } else {
-    if (palavraRes.length == 0) {
-      alert("Digite uma palavra válida!");
-    } else {
-      jogarDeNovoBotao.style.display = "block"; // Exibe o botão "Jogar de novo"
-      letraInput.disabled = true
-      palavraRes.disabled = true
+    if (palavraRes.value.toLowerCase() == palavras[num]){
+      mensagem.innerHTML = "Parabéns, você acertou!";
       palavraRes.value = ""; // Limpa o campo de entrada
-      iniciarJogo(); // Inicia o jogo automaticamente
+      jogarDeNovoBotao.style.display = "block"; // Exibe o botão "Jogar de novo"
+    } else {
+      alert("Resposta errada! Você perdeu")
+      jogarDeNovoBotao.style.display = "block"; // Exibe o botão "Jogar de novo"
+      letraInput.disabled = true;
+      palavraRes.disabled = true;
+      palavraRes.value = ""; // Limpa o campo de entrada
     }
   }
+
 }
 
-function jogarDeNovo(){
-  tentativas = 0
-  MudarImagem()
-  iniciarJogo()
+function jogarDeNovo() {
+  mensagem.innerHTML = ""
+  tentativas = 0;
+  MudarImagem();
+  iniciarJogo();
   jogarDeNovoBotao.style.display = "none"; // Exibe o botão "Jogar de novo"
-  letraInput.disabled = false
-  palavraRes.disabled = false
-
+  letraInput.disabled = false;
+  palavraRes.disabled = false;
 }
