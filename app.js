@@ -127,9 +127,9 @@ function res() {
       alert("Digite uma palavra válida!");
     } else {
       alert("Você errou!");
+      palavraRes.value = ""; // Limpa o campo de entrada
       tentativas = 0;
       iniciarJogo(); // Inicia o jogo automaticamente
-      palavraRes.value =""; // Limpa o campo de entrada
     }
   }
 }
