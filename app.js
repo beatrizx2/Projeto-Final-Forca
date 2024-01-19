@@ -121,7 +121,7 @@ function res() {
       palavraRes.value = ""; // Limpa o campo de entrada
       jogarDeNovoBotao.style.display = "flex"; // Exibe o botão "Jogar de novo"
     } else {
-      mensagem.innerHTML = "Que pena, você perdeu!"
+      mensagem.innerHTML = `Que pena, você perdeu! <br> a resposta era ${palavras[num]}`
       jogarDeNovoBotao.style.display = "flex"; // Exibe o botão "Jogar de novo"
       esconderBotoes()
       letraInput.disabled = true;
