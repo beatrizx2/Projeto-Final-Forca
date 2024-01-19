@@ -43,12 +43,22 @@ function iniciarJogo() {   // Função para iniciar o jogo
   dica.innerHTML = geradorDeDicas(); // Exibe a dica atual na página
 }
 
-function escolher() {
+function verificar() {
+  let letra = document.getElementById("letraInput").value.toLowerCase(); // Pega a letra digitada pelo usuário e a transforma em minúscula
+  teste = false
+  for (let i = 0; i < palavras[num].length; i++) {
+    // Para cada letra da palavra atual
+    if (palavras[num][i] === letra) {
+      // Se a letra da palavra atual é igual à letra digitada
+      teste = true// Substitui o sublinhado pela letra na posição correspondente
+    }
+  }
+
   if (letraInput.value.length == 0) {
     alert("Escolha uma letra!");
   } else {
-    if (tentativas == 4) {
-      tentativas++;
+    if (tentativas == 3 && teste == false) {
+      tentativas ++
       MudarImagem();
       mensagem.innerHTML = `Que pena, você perdeu!<br>  A resposta é <span id="resposta">${palavras[num]}</span>`
       esconderBotoes()
@@ -90,14 +100,6 @@ function jogar() {
       palavra.innerHTML = arr.join(" "); // Converte em string e junta por meio do espaço/ Atualiza a exibição da palavra na página
       letraInput.value = ""; // Limpa o campo de entrada
       if (!arr.includes("_")) {
-        // Se todas as letras foram adivinhadas
-        num = Math.floor(Math.random() * 47); // Gera um valor aleatório de 0 a 24
-        if (num < palavras.length) {
-          // Se ainda há palavras a serem adivinhadas
-          tentativas = 0;
-          MudarImagem();
-          jogar(); // Inicia o jogo com a próxima palavra
-        }
 
         mensagem.innerHTML = "Parabéns, você acertou!"
         esconderBotoes()
