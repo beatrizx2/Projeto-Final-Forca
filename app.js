@@ -3,7 +3,7 @@ let dica = document.querySelector("#dica"); //Seleciona a tag <span> com id dica
 
 let arr; // letiável que vai conter a palavra atual em formato de array
 let tentativas = 0; // Contador de tentativas erradas
-let num = Math.floor(Math.random() * 25); // Índice da palavra atual
+let num = Math.floor(Math.random() * 47); // Índice da palavra atual
 
 let forcaImagem = document.querySelector("#forca-img"); // Seleciona a imagem da forca
 
@@ -91,7 +91,7 @@ function jogar() {
       letraInput.value = ""; // Limpa o campo de entrada
       if (!arr.includes("_")) {
         // Se todas as letras foram adivinhadas
-        num = Math.floor(Math.random() * 25); // Gera um valor aleatório de 0 a 24
+        num = Math.floor(Math.random() * 47); // Gera um valor aleatório de 0 a 24
         if (num < palavras.length) {
           // Se ainda há palavras a serem adivinhadas
           tentativas = 0;
