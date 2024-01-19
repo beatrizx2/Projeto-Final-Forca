@@ -35,7 +35,7 @@ function geradorDeDicas() {
 
 function iniciarJogo() {   // Função para iniciar o jogo
   letrasEscolhidas = [];
-  num = Math.floor(Math.random() * 25); // Índice da palavra atual
+  num = Math.floor(Math.random() * 47); // Índice da palavra atual
   console.log(geradorDeDicas());
   console.log(palavras[num]);
   arr = new Array(palavras[num].length).fill("_"); // Inicializa o array com sublinhados do tamanho da palavra atual
