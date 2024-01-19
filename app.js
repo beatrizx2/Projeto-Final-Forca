@@ -50,7 +50,7 @@ function escolher() {
     if (tentativas == 3) {
       tentativas++;
       MudarImagem();
-      mensagem.innerHTML = `Que pena, você perdeu! <br> a resposta era ${palavras[num]}`
+      mensagem.innerHTML = `Que pena, você perdeu!<br>  A resposta é <span id="resposta">${palavras[num]}</span>`
       esconderBotoes()
       jogarDeNovoBotao.style.display = "flex"; // Exibe o botão "Jogar de novo"
       letraInput.disabled = true;
@@ -121,7 +121,7 @@ function res() {
       palavraRes.value = ""; // Limpa o campo de entrada
       jogarDeNovoBotao.style.display = "flex"; // Exibe o botão "Jogar de novo"
     } else {
-      mensagem.innerHTML = `Que pena, você perdeu! <br> a resposta era ${palavras[num]}`
+      mensagem.innerHTML = `Que pena, você perdeu!<br>  A resposta é <span id="resposta">${palavras[num]}</span>`
       jogarDeNovoBotao.style.display = "flex"; // Exibe o botão "Jogar de novo"
       esconderBotoes()
       letraInput.disabled = true;

@@ -38,6 +38,10 @@ span#mensagem{
     margin: 2%;
 }
 
+span#mensagem span#resposta{
+    color: #008080;
+}
+
 section#jogo-forca {
     display: flex;
     align-items: center;
