@@ -33,14 +33,15 @@ function geradorDeDicas() {
   }
 }
 
-function iniciarJogo() {   // Função para iniciar o jogo
+function iniciarJogo() {  // Função para iniciar o jogo
   letrasEscolhidas = [];
   num = Math.floor(Math.random() * 47); // Índice da palavra atual
   console.log(geradorDeDicas());
   console.log(palavras[num]);
   arr = new Array(palavras[num].length).fill("_"); // Inicializa o array com sublinhados do tamanho da palavra atual
-  palavra.innerHTML = arr.join(" "); // Exibe a palavra atual (como sublinhados) na página
-  dica.innerHTML = geradorDeDicas(); // Exibe a dica atual na página
+  palavra.innerHTML = arr.join(" "); // converte esse array em uma string e concatena os elementos por meio do espaço
+  dica.innerHTML = geradorDeDicas(); // define o conteúdo HTML da tag com o id "dica" 
+  // obtem a dica correspondente com base em num.
 }
 
 function verificar() {
@@ -50,7 +51,7 @@ function verificar() {
     alert("Escolha uma letra!");
   } else {
     if (tentativas == 3 && !palavras[num].includes(letra)) {
-      tentativas ++
+      tentativas ++;
       MudarImagem();
       mensagem.innerHTML = `Que pena, você perdeu!<br>  A resposta é <span id="resposta">${palavras[num]}</span>`
       esconderBotoes()
