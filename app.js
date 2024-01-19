@@ -45,19 +45,11 @@ function iniciarJogo() {   // Função para iniciar o jogo
 
 function verificar() {
   let letra = document.getElementById("letraInput").value.toLowerCase(); // Pega a letra digitada pelo usuário e a transforma em minúscula
-  teste = false
-  for (let i = 0; i < palavras[num].length; i++) {
-    // Para cada letra da palavra atual
-    if (palavras[num][i] === letra) {
-      // Se a letra da palavra atual é igual à letra digitada
-      teste = true// Substitui o sublinhado pela letra na posição correspondente
-    }
-  }
 
   if (letraInput.value.length == 0) {
     alert("Escolha uma letra!");
   } else {
-    if (tentativas == 3 && teste == false) {
+    if (tentativas == 3 && !palavras[num].includes(letra)) {
       tentativas ++
       MudarImagem();
       mensagem.innerHTML = `Que pena, você perdeu!<br>  A resposta é <span id="resposta">${palavras[num]}</span>`
