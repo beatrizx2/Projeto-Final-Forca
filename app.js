@@ -1,64 +1,41 @@
-let palavras = [
-  "girafa",
-  "macaco",
-  "cachorro",
-  "gato",
-  "coelho",
-  "banana",
-  "laranja",
-  "melancia",
-  "abacaxi",
-  "morango",
-  "espanha",
-  "brasil",
-  "canada",
-  "mexico",
-  "austria",
-  "carro",
-  "moto",
-  "bicicleta",
-  "barco",
-  "onibus",
-  "javascript",
-  "python",
-  "ruby",
-  "assembly",
-  "java",
-]; // Array de palavras a serem adivinhadas
 let dicas = ["Animal", "Fruta", "País", "Veículo", "Linguagem de Programação"]; // Array de dicas correspondentes às palavras
+let dica = document.querySelector("#dica"); //Seleciona a tag <span> com id dica
+
 let arr; // letiável que vai conter a palavra atual em formato de array
 let tentativas = 0; // Contador de tentativas erradas
 let num = Math.floor(Math.random() * 25); // Índice da palavra atual
+
 let forcaImagem = document.querySelector("#forca-img"); // Seleciona a imagem da forca
-let botaoResposta = document.querySelector("#resButton"); // Seleciona o botão para responder a palavra inteira
+
 let letrasEscolhidas = []; // cria um array vazio para ser adicionado as letras que vão sendo escolhidas
-let palavra = document.getElementById("palavra"); //Seleciona a tag <p> com id palavra
-let mensagem = document.getElementById("mensagem");
-let dica = document.getElementById("dica"); //Seleciona a tag <span> com id dica
-let letraInput = document.getElementById("letraInput"); //Seleciona o input em que vai ser digitado a letra
-let palavraRes = document.getElementById("resInput");
-let jogarDeNovoBotao = document.getElementById("jogar-de-novo"); //Seleciona o botão de jogar novamente
+let palavra = document.querySelector("#palavra"); //Seleciona a tag <p> com id palavra
+let mensagem = document.querySelector("#mensagem");
+
+let letraInput = document.querySelector("#letraInput"); //Seleciona o input em que vai ser digitado a letra
+let palavraRes = document.querySelector("#resInput");
+
+let jogarDeNovoBotao = document.querySelector("#jogar-de-novo"); //Seleciona o botão de jogar novamente
 let letraButton = document.querySelector("#letraButton")
+let botaoResposta = document.querySelector("#resButton"); // Seleciona o botão para responder a palavra inteira
 botaoResposta.addEventListener("click", res); // Adiciona o evento de click e chama a função res() no botão resposta
 
 function geradorDeDicas() {
-  if (num <= 4) {
+  if (num <= 9) {
     return dicas[0];
-  } else if (num > 4 && num <= 9) {
+  } else if (num > 9 && num <= 19) {
     return dicas[1];
-  } else if (num > 9 && num <= 14) {
+  } else if (num > 19 && num <= 29) {
     return dicas[2];
-  } else if (num > 14 && num <= 19) {
+  } else if (num > 29 && num <= 39) {
     return dicas[3];
   } else {
     return dicas[4];
   }
 }
 
-function iniciarJogo() {
+function iniciarJogo() {   // Função para iniciar o jogo
   letrasEscolhidas = [];
   num = Math.floor(Math.random() * 25); // Índice da palavra atual
-  // Função para iniciar o jogo
   console.log(geradorDeDicas());
   console.log(palavras[num]);
   arr = new Array(palavras[num].length).fill("_"); // Inicializa o array com sublinhados do tamanho da palavra atual
@@ -66,7 +43,6 @@ function iniciarJogo() {
   dica.innerHTML = geradorDeDicas(); // Exibe a dica atual na página
 }
 
-//Função para verificar se o input da letra está vazio ou não
 function escolher() {
   if (letraInput.value.length == 0) {
     alert("Escolha uma letra!");
@@ -74,7 +50,7 @@ function escolher() {
     if (tentativas == 3) {
       tentativas++;
       MudarImagem();
-      mensagem.innerHTML = "Que pena, você perdeu!"
+      mensagem.innerHTML = `Que pena, você perdeu! <br> a resposta era ${palavras[num]}`
       esconderBotoes()
       jogarDeNovoBotao.style.display = "flex"; // Exibe o botão "Jogar de novo"
       letraInput.disabled = true;
