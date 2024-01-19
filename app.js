@@ -48,7 +48,6 @@ function escolher() {
     alert("Escolha uma letra!");
   } else {
     if (tentativas == 3) {
-      tentativas++;
       MudarImagem();
       mensagem.innerHTML = `Que pena, você perdeu!<br>  A resposta é <span id="resposta">${palavras[num]}</span>`
       esconderBotoes()
