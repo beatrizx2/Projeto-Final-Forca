@@ -15,9 +15,7 @@ let letraInput = document.querySelector("#letraInput"); //Seleciona o input em q
 let palavraRes = document.querySelector("#resInput");
 
 let jogarDeNovoBotao = document.querySelector("#jogar-de-novo"); //Seleciona o botão de jogar novamente
-let letraButton = document.querySelector("#letraButton")
-let botaoResposta = document.querySelector("#resButton"); // Seleciona o botão para responder a palavra inteira
-botaoResposta.addEventListener("click", res); // Adiciona o evento de click e chama a função res() no botão resposta
+let letraButton = document.querySelector("#letraButton");
 
 function geradorDeDicas() {
   if (num <= 9) {
@@ -36,8 +34,6 @@ function geradorDeDicas() {
 function iniciarJogo() {  // Função para iniciar o jogo
   letrasEscolhidas = [];
   num = Math.floor(Math.random() * 47); // Índice da palavra atual
-  console.log(geradorDeDicas());
-  console.log(palavras[num]);
   arr = new Array(palavras[num].length).fill("_"); // Inicializa o array com sublinhados do tamanho da palavra atual
   palavra.innerHTML = arr.join(" "); // converte esse array em uma string e concatena os elementos por meio do espaço
   dica.innerHTML = geradorDeDicas(); // define o conteúdo HTML da tag com o id "dica" 
@@ -53,12 +49,12 @@ function verificar() {
     if (tentativas == 3 && !palavras[num].includes(letra)) {
       tentativas ++;
       MudarImagem();
-      mensagem.innerHTML = `Que pena, você perdeu!<br>  A resposta é <span id="resposta">${palavras[num]}</span>`
-      esconderBotoes()
+      mensagem.innerHTML = `Que pena, você perdeu!<br>  A resposta é <span id="resposta">${palavras[num]}</span>`;
+      esconderBotoes();
       jogarDeNovoBotao.style.display = "flex"; // Exibe o botão "Jogar de novo"
       letraInput.disabled = true;
       palavraRes.disabled = true;
-      letraInput.value = ""
+      letraInput.value = "";
     } else {
       jogar();
     }
@@ -87,15 +83,14 @@ function jogar() {
       } else {
         // Se a palavra atual não contém a letra digitada
         tentativas++; // Incrementa o número de tentativas erradas
-        console.log(tentativas);
         MudarImagem();
       }
       palavra.innerHTML = arr.join(" "); // Converte em string e junta por meio do espaço/ Atualiza a exibição da palavra na página
       letraInput.value = ""; // Limpa o campo de entrada
       if (!arr.includes("_")) {
 
-        mensagem.innerHTML = "Parabéns, você acertou!"
-        esconderBotoes()
+        mensagem.innerHTML = "Parabéns, você acertou!";
+        esconderBotoes();
         jogarDeNovoBotao.style.display = "flex"; // Exibe o botão "Jogar de novo"
         
       }
@@ -107,18 +102,18 @@ function jogar() {
 
 function res() {
   if (palavraRes.value.length == 0){
-    alert("Digite uma palavra válida!")
+    alert("Digite uma palavra válida!");
   } else {
     if (palavraRes.value.toLowerCase() == palavras[num]){
-      palavra.innerHTML = palavras[num]
+      palavra.innerHTML = palavras[num];
       mensagem.innerHTML = "Parabéns, você acertou!";
-      esconderBotoes()
+      esconderBotoes();
       palavraRes.value = ""; // Limpa o campo de entrada
       jogarDeNovoBotao.style.display = "flex"; // Exibe o botão "Jogar de novo"
     } else {
       mensagem.innerHTML = `Que pena, você perdeu!<br>  A resposta é <span id="resposta">${palavras[num]}</span>`
       jogarDeNovoBotao.style.display = "flex"; // Exibe o botão "Jogar de novo"
-      esconderBotoes()
+      esconderBotoes();
       letraInput.disabled = true;
       palavraRes.disabled = true;
       palavraRes.value = ""; // Limpa o campo de entrada
@@ -128,7 +123,7 @@ function res() {
 }
 
 function jogarDeNovo() {
-  mensagem.innerHTML = ""
+  mensagem.innerHTML = "";
   tentativas = 0;
   MudarImagem();
   iniciarJogo();
@@ -140,14 +135,14 @@ function jogarDeNovo() {
 
 function esconderBotoes(){
   let formInput = document.querySelector("#formInput");
-  let formRes = document.querySelector("#formRes")
-  formInput.style.display = "none"
-  formRes.style.display = "none"
+  let formRes = document.querySelector("#formRes");
+  formInput.style.display = "none";
+  formRes.style.display = "none";
 }
 
 function mostrarBotoes(){
   let formInput = document.querySelector("#formInput");
-  let formRes = document.querySelector("#formRes")
-  formInput.style.display = "flex"
-  formRes.style.display = "flex"
+  let formRes = document.querySelector("#formRes");
+  formInput.style.display = "flex";
+  formRes.style.display = "flex";
 }
