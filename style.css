@@ -29,13 +29,20 @@ section#formInput, section#formRes{
     margin-top: 1%;
 }
 
-section#formInput span, section#formRes span, span#mensagem{
+section#formRes{
+    margin-bottom:1%;
+}
+
+section#formInput span, section#formRes span, span#mensagem, span#spanLetras{
     font-weight: bold;
-    /* margin-left: 1%; */
 }
 
 span#mensagem{
     margin: 2%;
+}
+
+span#spanLetras{
+    padding-top: 10%;
 }
 
 span#mensagem span#resposta{

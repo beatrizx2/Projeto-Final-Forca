@@ -10,6 +10,7 @@ let forcaImagem = document.querySelector("#forca-img"); // Seleciona a imagem da
 let letrasEscolhidas = []; // cria um array vazio para ser adicionado as letras que vão sendo escolhidas
 let palavra = document.querySelector("#palavra"); //Seleciona a tag <p> com id palavra
 let mensagem = document.querySelector("#mensagem");
+let caixaDeLetras = document.querySelector("#spanLetras")
 
 let letraInput = document.querySelector("#letraInput"); //Seleciona o input em que vai ser digitado a letra
 let palavraRes = document.querySelector("#resInput");
@@ -32,7 +33,8 @@ function geradorDeDicas() {
 }
 
 function iniciarJogo() {  // Função para iniciar o jogo
-  letrasEscolhidas = [];
+  letrasEscolhidas = []
+  mostrarLetrasJogadas()
   num = Math.floor(Math.random() * 47); // Índice da palavra atual
   arr = new Array(palavras[num].length).fill("_"); // Inicializa o array com sublinhados do tamanho da palavra atual
   palavra.innerHTML = arr.join(" "); // converte esse array em uma string e concatena os elementos por meio do espaço
@@ -52,13 +54,15 @@ function verificar() {
       mensagem.innerHTML = `Que pena, você perdeu!<br>  A resposta é <span id="resposta">${palavras[num]}</span>`;
       esconderBotoes();
       jogarDeNovoBotao.style.display = "flex"; // Exibe o botão "Jogar de novo"
-      letraInput.disabled = true;
-      palavraRes.disabled = true;
-      letraInput.value = "";
     } else {
       jogar();
     }
   }
+}
+
+function mostrarLetrasJogadas(){
+  caixaDeLetras.innerHTML = `Letras jogadas: ${letrasEscolhidas}`
+  console.log(letrasEscolhidas)
 }
 
 function jogar() {
@@ -98,6 +102,8 @@ function jogar() {
   }
 
   letrasEscolhidas.push(letra);
+  mostrarLetrasJogadas()
+
 }
 
 function res() {
@@ -138,6 +144,8 @@ function esconderBotoes(){
   let formRes = document.querySelector("#formRes");
   formInput.style.display = "none";
   formRes.style.display = "none";
+  caixaDeLetras.style.display = "none";
+
 }
 
 function mostrarBotoes(){
@@ -145,4 +153,5 @@ function mostrarBotoes(){
   let formRes = document.querySelector("#formRes");
   formInput.style.display = "flex";
   formRes.style.display = "flex";
+  caixaDeLetras.style.display = "flex";
 }
