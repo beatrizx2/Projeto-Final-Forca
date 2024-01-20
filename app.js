@@ -99,9 +99,10 @@ function jogar() {
         
       }
     }
+    letrasEscolhidas.push(letra);
   }
 
-  letrasEscolhidas.push(letra);
+
   mostrarLetrasJogadas()
 
 }
